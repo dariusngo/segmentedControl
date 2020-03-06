@@ -11,7 +11,6 @@ import UIKit
 class ViewController: UIViewController {
   
   @IBOutlet weak var textfield: UITextField!
-  
   @IBOutlet weak var stack: UIStackView!
   
   override func viewDidLoad() {
@@ -25,11 +24,17 @@ class ViewController: UIViewController {
   }
   
   private func animate() {
-    
-    UIView.animate(withDuration: 0.25) {
-      self.textfield.isHidden.toggle()
-      self.stack.layoutIfNeeded()
-    }
+    self.textfield.text = self.textfield.isHidden ? "asdads" : ""
+    UIView.animate(
+      withDuration: 0.25,
+      delay: 0,
+      options: .curveEaseInOut,
+      animations: {
+        
+        self.textfield.isHidden.toggle()
+        self.stack.layoutIfNeeded()
+    },
+      completion: nil)
   }
 }
 
